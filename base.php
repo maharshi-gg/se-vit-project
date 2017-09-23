@@ -20,7 +20,7 @@ try {
   
   $sql = "SELECT 1 from 'users'";
   $val=$db->prepare($sql);
-  if(!$val->execute())
+  if(!$val)
   {
     $sql1 = "CREATE TABLE `users` (`Username` VARCHAR(30) NOT NULL, `Password` VARCHAR(30) NOT NULL, `Email` VARCHAR(40) NOT NULL, `Mobile` INT(10) NOT NULL, `Comments` VARCHAR(100) NOT NULL)";
     $stmt1 = $db->prepare($sql1);
