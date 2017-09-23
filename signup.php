@@ -1,7 +1,7 @@
 <?php
 include_once "base.php";
 if (!empty($_POST['username']) && !empty($_POST['password'])):
-  include_once "inc\class.users.inc.php";
+  include_once "inc/class.users.inc.php";
   $users = new ProjectUsers($db);
   echo $users->createAccount();
   function phpAlert()
