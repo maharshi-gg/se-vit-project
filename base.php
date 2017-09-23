@@ -23,11 +23,10 @@ try {
   if($val!==TRUE)
   {
     $sql1 = "CREATE TABLE `users` (`Username` VARCHAR(30) NOT NULL, `Password` VARCHAR(30) NOT NULL, `Email` VARCHAR(40) NOT NULL, `Mobile` INT(10) NOT NULL, `Comments` VARCHAR(100) NOT NULL)";
-    if ($db->query($sql1) === TRUE) {
-        echo "Table users created successfully";
-    } else {
-        echo "Error creating table: " . $conn->error;
-    }
+      if($db->query($sql1)===TRUE){
+          echo "Table users created successfully";
+      } else{echo "Error creating table: " . $conn->error;
+        }
   }
 }
 catch (Exception $e) {
