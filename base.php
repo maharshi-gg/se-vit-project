@@ -16,9 +16,17 @@ try {
   $username = $url["root"];
   $password = $url[""];
   $db_conn = substr($url["sep"], 1);
-  //$dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME;
-  //$db = new PDO($dsn, DB_USER, DB_PASS);
   $db = new mysqli($server,$username,$password,$db_conn);
+  
+  $sql = "SELECT 1 from 'users'";
+  $val=$db->prepare($sql);
+  $val->execute();
+  if($val!==FALSE);
+  else {
+    $sql1 = "CREATE TABLE `users` (`Username` VARCHAR(30) NOT NULL, `Password` VARCHAR(30) NOT NULL, `Email` VARCHAR(40) NOT NULL, `Mobile` INT(10) NOT NULL, `Comments` VARCHAR(100) NOT NULL)";
+    $stmt1 = $db->prepare($sql1);
+    $stmt1->execute();
+  }
 }
 catch (PDOException $e) {
   echo 'Connection failed: ' . $e->getMessage();
