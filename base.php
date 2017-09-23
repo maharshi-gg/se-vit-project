@@ -19,12 +19,15 @@ try {
   if(!($db = new mysqli($server,$username,$password,$db_conn))){echo "Error connecting to Db.";}
   
   $sql = "SELECT 1 from 'users'";
-  $val=$db->prepare($sql);
+  $val=$db->query($sql);
   if(!$val)
   {
     $sql1 = "CREATE TABLE `users` (`Username` VARCHAR(30) NOT NULL, `Password` VARCHAR(30) NOT NULL, `Email` VARCHAR(40) NOT NULL, `Mobile` INT(10) NOT NULL, `Comments` VARCHAR(100) NOT NULL)";
-    $stmt1 = $db->prepare($sql1);
-    $stmt1->execute();
+    if ($db->query($sql) === TRUE) {
+        echo "Table users created successfully";
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
   }
     else;
 }
