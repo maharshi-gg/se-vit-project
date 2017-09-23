@@ -59,8 +59,14 @@ class ProjectUsers
   public function accountLogin()
   {
 
-      $db2 = new PDO('mysql:host=localhost;dbname=sep;charset=utf8mb4', 'root', '');
-      $user1 = $_POST['username'];
+      //$db2 = new PDO('mysql:host=localhost;dbname=sep;charset=utf8mb4', 'root', '');
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  $server = $url["DB_HOST"];
+  $username = $url["DB_NAME"];
+  $password = $url[""];
+  $db_conn = substr($url["DB_NAME"], 1);
+  $db2 = new mysqli($server,$username,$password,$db_conn);  
+    $user1 = $_POST['username'];
       $pass1 = $_POST['password'];
       $sql = "SELECT Username FROM users WHERE Username=? AND Password=?";
       try
