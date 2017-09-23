@@ -8,7 +8,7 @@ ini_set("display_errors", 1);
 // Start a PHP session
 session_start();
 // Include site constants
-include_once "inc\constant.inc.php";
+include_once "inc/constant.inc.php";
 // Create a database object
 try {
   $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME;
