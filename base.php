@@ -11,8 +11,14 @@ session_start();
 include_once "inc/constant.inc.php";
 // Create a database object
 try {
-  $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME;
-  $db = new PDO($dsn, DB_USER, DB_PASS);
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  $server = $url["DB_HOST"];
+  $username = $url["DB_NAME"];
+  $password = $url[""];
+  $db_conn = substr($url["DB_NAME"], 1);
+  //$dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME;
+  //$db = new PDO($dsn, DB_USER, DB_PASS);
+  $db = new mysqli($server,$username,$password,$db_conn);
 }
 catch (PDOException $e) {
   echo 'Connection failed: ' . $e->getMessage();
