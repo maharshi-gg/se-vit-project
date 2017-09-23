@@ -16,7 +16,7 @@ try {
   $username = $url["root"];
   $password = $url[""];
   $db_conn = substr($url["sep"], 1);
-  $db = new mysqli($server,$username,$password,$db_conn);
+  if(!($db = new mysqli($server,$username,$password,$db_conn))){echo "Error connecting to Db.";}
   
   $sql = "SELECT 1 from 'users'";
   $val=$db->prepare($sql);
@@ -28,7 +28,7 @@ try {
   }
     else;
 }
-catch (PDOException $e) {
+catch (Exception $e) {
   echo 'Connection failed: ' . $e->getMessage();
   exit;
 }
