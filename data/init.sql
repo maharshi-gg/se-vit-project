@@ -1,4 +1,4 @@
-use sep;
+//use sep;
 
 CREATE TABLE users (
 Username VARCHAR(30) NOT NULL, 
