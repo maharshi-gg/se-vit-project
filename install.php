@@ -9,7 +9,7 @@ try{
     $db_conn = substr($url["sep"], 1);
     if(!($db = new mysqli($server,$username,$password,$db_conn))){echo "Error connecting to Db.";}
     $sql=file_get_contents("data/init.sql");
-    $connection->get($sql);
+    $db->exec($sql);
     
     echo "Database and table users created successfully.";
 }
