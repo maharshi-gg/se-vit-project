@@ -74,9 +74,11 @@ class ProjectUsers
       try
       {
         $stmt = $db2->prepare($sql);
-
+        $stmt->bind_param("ss", $user1, $pass1);
+        /*
         $stmt->bindParam(1, $user1, PDO::PARAM_STR);
         $stmt->bindParam(2, $pass1, PDO::PARAM_STR);
+        */
         $stmt->execute();
 
         $count=0;
