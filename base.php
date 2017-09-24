@@ -17,7 +17,7 @@ try {
   $password = $url[""];
   $db_conn = substr($url["sep"], 1);
   if(!($db = new mysqli($server,$username,$password,$db_conn))){echo "Error connecting to Db.";}
-  
+  /*
   $sql = "SELECT 1 from 'users'";
   $val=$db->query($sql);
   if($val!==TRUE)
@@ -28,6 +28,7 @@ try {
       } else{echo "Error creating table: " . $db->error;
         }
   }
+  */
 }
 catch (Exception $e) {
   echo 'Connection failed: ' . $e->getMessage();
