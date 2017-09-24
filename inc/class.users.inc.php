@@ -66,8 +66,8 @@ class ProjectUsers
   $username = $url["root"];
   $password = $url[""];
   $db_conn = substr($url["sep"], 1);
-  //$db2 = new mysqli($server,$username,$password,$db_conn);  
-  $db2=$this->_db;
+  $db2 = new mysqli($server,$username,$password,$db_conn);  
+  //$db2=$this->_db;
     $user1 = $_POST['username'];
       $pass1 = $_POST['password'];
       $sql = "SELECT Username FROM users WHERE Username=? AND Password=?";
