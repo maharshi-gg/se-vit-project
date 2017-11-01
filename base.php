@@ -11,11 +11,11 @@ session_start();
 include_once "inc/constant.inc.php";
 // Create a database object
 try {
-  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-  $server = $url["127.0.0.1"];
-  $username = $url["root"];
-  $password = $url[""];
-  $db_conn = substr($url["sep"], 1);
+  $url = parse_url(getenv("mysql://ba8b6aeef30ad8:5527fbb2@us-cdbr-iron-east-05.cleardb.net/heroku_8d9bd2982844ecb?reconnect=true"));
+  $server = $url["us-cdbr-iron-east-05.cleardb.net"];
+  $username = $url["ba8b6aeef30ad8"];
+  $password = $url["5527fbb2"];
+  $db_conn = substr($url["users"], 1);
   if(!($db = new mysqli($server,$username,$password,$db_conn))){echo "Error connecting to Db.";}
   /*
   $sql = "SELECT 1 from 'users'";
