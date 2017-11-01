@@ -60,13 +60,12 @@ class ProjectUsers
   {
 
     //$db2 = new PDO('mysql:host=127.0.0.1;dbname=sep;charset=utf8mb4', 'root', '');
-    
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-  $server = $url["127.0.0.1"];
-  $username = $url["root"];
-  $password = $url[""];
-  $db_conn = substr($url["sep"], 1);
-  $db2 = new mysqli($server,$username,$password,$db_conn);  
+    $url = parse_url(getenv("mysql://ba8b6aeef30ad8:5527fbb2@us-cdbr-iron-east-05.cleardb.net/heroku_8d9bd2982844ecb?reconnect=true"));
+    $server = $url["us-cdbr-iron-east-05.cleardb.net"];
+    $username = $url["ba8b6aeef30ad8"];
+    $password = $url["5527fbb2"];
+    $db_conn = substr($url["users"], 1);
+    $db2 = new mysqli($server,$username,$password,$db_conn);  
   //$db2=$this->_db;
     $user1 = $_POST['username'];
       $pass1 = $_POST['password'];
