@@ -8,8 +8,14 @@ class ProjectUsers
   public function __construct($db=NULL)
   {
     if(!is_object($db)) {
-      $dsn = "mysql:host=".DB_HOST.";dbname".DB_NAME;
-      $this->_db = $db;
+     // $dsn = "mysql:host=".DB_HOST.";dbname".DB_NAME;
+     // $this->_db = $db;
+      $url = parse_url(getenv("mysql://ba8b6aeef30ad8:5527fbb2@us-cdbr-iron-east-05.cleardb.net/heroku_8d9bd2982844ecb?reconnect=true"));
+      $server = $url["us-cdbr-iron-east-05.cleardb.net"];
+      $username = $url["ba8b6aeef30ad8"];
+      $password = $url["5527fbb2"];
+      $db_conn = substr($url["users"], 1);
+      if(!($this->_db = new mysqli($server,$username,$password,$db_conn))){echo "Error connecting to Db.";}
     }
     else {
         $this->_db = $db;
