@@ -64,7 +64,7 @@ class ProjectUsers
         }
      */
     try{
-      if($this->_db->query($sql)) echo "inserted successfully";
+      if(mysqli_query($this->_db,$sql) echo "inserted successfully";
       else echo "****##### COULDN'T INSERT ######******";
     }
     catch(PDOException $e)
