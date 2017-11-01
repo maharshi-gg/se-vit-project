@@ -42,6 +42,7 @@ class ProjectUsers
     $mobile = $_POST['mobile'];
     $comments = $_POST['comments'];
     $sql = "INSERT INTO users (Username,Password, Email, Mobile, Comments) VALUES (:user, :pass, :email, :mobile, :comments)";
+    /*
     if($stmt = $this->_db->prepare($sql)) {
     // echo "Inside the if clause";
             $stmt->bindParam(":user", $u, PDO::PARAM_STR);
@@ -55,6 +56,15 @@ class ProjectUsers
           }
 
         }
+     */
+    try{
+      if($this->_db->query($sql)) echo "inserted successfully";
+      else echo "****##### COULDN'T INSERT ######******";
+    }
+    catch(PDOException $e)
+      {
+        echo "some error";
+      }
   }
   public function accountLogin()
   {
